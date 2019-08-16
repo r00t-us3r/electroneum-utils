@@ -21,7 +21,7 @@
   ],
   "license": "GPL-3.0",
   "optionalDependencies": {
-    "electroneum-crypto": "^3.0.4"
+    "electroneum-crypto": "^0.0.1"
   },
   "dependencies": {
     "crc": "^3.8.0",
