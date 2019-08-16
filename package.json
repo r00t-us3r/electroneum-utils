@@ -1,6 +1,6 @@
 {
   "name": "electroneum-utils",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Node.js collection of utilities useful for Electroneum developers",
   "main": "index.js",
   "types": "index.d.ts",
