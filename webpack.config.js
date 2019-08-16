@@ -6,8 +6,8 @@ module.exports = {
   mode: 'production',
   entry: './index.js',
   output: {
-    filename: 'TurtleCoinUtils.js',
-    library: 'TurtleCoinUtils',
+    filename: 'ElectroneumUtils.js',
+    library: 'ElectroneumUtils',
     libraryTarget: 'umd'
   },
   node: {
@@ -16,7 +16,7 @@ module.exports = {
   target: 'web',
   plugins: [
     new CopyWebPackPlugin([
-      { from: 'lib/turtlecoin-crypto/turtlecoin-crypto-wasm.js', to: 'turtlecoin-crypto-wasm.js' }
+      { from: 'lib/electroneum-crypto/electroneum-crypto-wasm.js', to: 'electroneum-crypto-wasm.js' }
     ])
   ]
 }

@@ -1,19 +1,19 @@
 {
-  "name": "turtlecoin-utils",
-  "version": "1.0.3",
-  "description": "A Node.js collection of utilities useful for TurtleCoin developers",
+  "name": "electroneum-utils",
+  "version": "1.0.0",
+  "description": "A Node.js collection of utilities useful for Electroneum developers",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "npm install && standard && node tests/tests.js && node tests/blockTests.js"
   },
   "keywords": [
-    "TurtleCoin",
+    "Electroneum",
     "Utilities"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turtlecoin/turtlecoin-utils.git"
+    "url": "git+https://github.com/r00t-us3r/electroneum-utils.git"
   },
   "author": "Brandon Lehmann <brandonlehmann@gmail.com>",
   "contributors": [
@@ -21,7 +21,7 @@
   ],
   "license": "GPL-3.0",
   "optionalDependencies": {
-    "turtlecoin-crypto": "^3.0.4"
+    "electroneum-crypto": "^3.0.4"
   },
   "dependencies": {
     "crc": "^3.8.0",
@@ -33,8 +33,8 @@
   "standard": {
     "ignore": [
       "lib/mnemonic.js",
-      "lib/turtlecoin-crypto/turtlecoin-crypto.js",
-      "lib/turtlecoin-crypto/turtlecoin-crypto-wasm.js",
+      "lib/electroneum-crypto/electroneum-crypto.js",
+      "lib/electroneum-crypto/electroneum-crypto-wasm.js",
       "dist/*"
     ]
   },

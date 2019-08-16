@@ -15,7 +15,7 @@ const Mnemonic = require('./lib/mnemonic.js')
 const Numeral = require('numeral')
 const SecureRandomString = require('secure-random-string')
 const Transaction = require('./lib/transaction.js')
-const TurtleCoinCrypto = require('./lib/turtlecoin-crypto')()
+const ElectroneumCrypto = require('./lib/electroneum-crypto')()
 const Varint = require('varint')
 
 /* This sets up the ability for the caller to specify
@@ -611,7 +611,7 @@ class CryptoNote {
       userCryptoFunctions.underivePublicKey(derivation, outputIndex, outputKey)
     }
 
-    const [err, key] = TurtleCoinCrypto.underivePublicKey(derivation, outputIndex, outputKey)
+    const [err, key] = ElectroneumCrypto.underivePublicKey(derivation, outputIndex, outputKey)
 
     if (err) throw new Error('Could not underive public key')
 
@@ -672,7 +672,7 @@ function decodeVarint (hex) {
 }
 
 function scReduce32 (hex) {
-  const [err, result] = TurtleCoinCrypto.scReduce32(hex)
+  const [err, result] = ElectroneumCrypto.scReduce32(hex)
 
   if (err) throw new Error('Could not scReduce32')
 
@@ -692,7 +692,7 @@ function derivePublicKey (derivation, outputIndex, publicKey) {
     return userCryptoFunctions.derivePublicKey(derivation, outputIndex, publicKey)
   }
 
-  const [err, key] = TurtleCoinCrypto.derivePublicKey(derivation, outputIndex, publicKey)
+  const [err, key] = ElectroneumCrypto.derivePublicKey(derivation, outputIndex, publicKey)
 
   if (err) throw new Error('Could not derive public key')
 
@@ -712,7 +712,7 @@ function deriveSecretKey (derivation, outputIndex, privateKey) {
     return userCryptoFunctions.deriveSecretKey(derivation, outputIndex, privateKey)
   }
 
-  const [err, key] = TurtleCoinCrypto.deriveSecretKey(derivation, outputIndex, privateKey)
+  const [err, key] = ElectroneumCrypto.deriveSecretKey(derivation, outputIndex, privateKey)
 
   if (err) throw new Error('Could not derive secret key')
 
@@ -732,7 +732,7 @@ function generateKeyImage (publicKey, privateKey) {
     return userCryptoFunctions.generateKeyImage(publicKey, privateKey)
   }
 
-  const [err, keyImage] = TurtleCoinCrypto.generateKeyImage(publicKey, privateKey)
+  const [err, keyImage] = ElectroneumCrypto.generateKeyImage(publicKey, privateKey)
 
   if (err) throw new Error('Could not generate key image')
 
@@ -748,7 +748,7 @@ function privateKeyToPublicKey (privateKey) {
     return userCryptoFunctions.secretKeyToPublicKey(privateKey)
   }
 
-  const [err, key] = TurtleCoinCrypto.secretKeyToPublicKey(privateKey)
+  const [err, key] = ElectroneumCrypto.secretKeyToPublicKey(privateKey)
 
   if (err) throw new Error('Could not derive public key from secret key')
 
@@ -764,7 +764,7 @@ function cnFastHash (input) {
     return userCryptoFunctions.cnFastHash(input)
   }
 
-  const [err, hash] = TurtleCoinCrypto.cn_fast_hash(input)
+  const [err, hash] = ElectroneumCrypto.cn_fast_hash(input)
 
   if (err) throw new Error('Could not calculate CN Fast Hash')
 
@@ -840,12 +840,12 @@ function generateRingSignature (transactionPrefixHash, keyImage, inputKeys, priv
     return userCryptoFunctions.generateRingSignatures(transactionPrefixHash, keyImage, inputKeys, privateKey, realIndex)
   }
 
-  const [err, signatures] = TurtleCoinCrypto.generateRingSignatures(transactionPrefixHash, keyImage, inputKeys, privateKey, realIndex)
+  const [err, signatures] = ElectroneumCrypto.generateRingSignatures(transactionPrefixHash, keyImage, inputKeys, privateKey, realIndex)
 
   if (err) return new Error('Could not generate ring signatures')
 
-  if (typeof TurtleCoinCrypto.checkRingSignatures !== 'undefined') {
-    if (!TurtleCoinCrypto.checkRingSignatures(transactionPrefixHash, keyImage, inputKeys, signatures)) {
+  if (typeof ElectroneumCrypto.checkRingSignatures !== 'undefined') {
+    if (!ElectroneumCrypto.checkRingSignatures(transactionPrefixHash, keyImage, inputKeys, signatures)) {
       return new Error('Could not verify generated ring signatures')
     }
   }
@@ -1189,7 +1189,7 @@ function generateKeyDerivation (transactionPublicKey, privateViewKey) {
     return userCryptoFunctions.generateKeyDerivation(transactionPublicKey, privateViewKey)
   }
 
-  const [err, derivation] = TurtleCoinCrypto.generateKeyDerivation(transactionPublicKey, privateViewKey)
+  const [err, derivation] = ElectroneumCrypto.generateKeyDerivation(transactionPublicKey, privateViewKey)
 
   if (err) throw new Error('Could not generate key derivation')
 
@@ -1200,5 +1200,5 @@ module.exports = {
   CryptoNote,
   Block,
   Transaction,
-  Crypto: TurtleCoinCrypto
+  Crypto: ElectroneumCrypto
 }
